@@ -21,12 +21,6 @@ class Application
     print "> "
   end
 
-  def show_finder
-    puts "By what means do you wish to locate a contact?"
-    puts "-First Name"
-    puts "-Last Name"
-    puts "-Email"
-  end
 
   def evaluate_input(input)
       case
@@ -65,7 +59,7 @@ class Application
   #       puts "This is not a valid input. Please try again"
   #     end
   # end
-  
+
   # def get_name
   #   name = gets.chomp
   # end
@@ -90,7 +84,7 @@ class Application
   # end
 
   def view_all
-    Contact.all.each do |contact|
+    Contact.all.order(:first_name).each do |contact|
       puts "ID:#{contact.id} Name: #{contact.first_name} #{contact.last_name}, Email: #{contact.email}".colorize(:light_blue)
     end
   end
